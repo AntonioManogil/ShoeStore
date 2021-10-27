@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/authentication_screen_til_marginTop"
+        android:layout_marginTop="@dimen/authentication_screen_til_marginTop"
+        android:layout_marginEnd="@dimen/authentication_screen_til_marginTop"
+        android:elevation="@dimen/card_view_elevation"
+        app:cardCornerRadius="@dimen/card_view_corner_radius">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/card_view_layout_content_padding">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_label_item_shoe_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/shoe_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_item_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{shoe.name}"
+                android:textSize="@dimen/et_text_size"
+
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_label_item_shoe_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_label_item_shoe_name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_label_item_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/company"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_label_item_shoe_name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_item_company"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{shoe.company}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_label_item_company"
+                app:layout_constraintEnd_toEndOf="@+id/tv_item_name"
+                app:layout_constraintStart_toStartOf="@+id/tv_item_name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_label_item_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/size"
+                app:layout_constraintStart_toStartOf="@+id/tv_label_item_company"
+                app:layout_constraintTop_toBottomOf="@+id/tv_label_item_company" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/et_item_size"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{Double.toString(shoe.size)}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_label_item_size"
+                app:layout_constraintEnd_toEndOf="@+id/tv_item_company"
+                app:layout_constraintStart_toStartOf="@+id/tv_item_company" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_label_item_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/description"
+                app:layout_constraintStart_toStartOf="@+id/tv_label_item_size"
+                app:layout_constraintTop_toBottomOf="@+id/tv_label_item_size" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/et_item_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{shoe.description}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_label_item_description"
+                app:layout_constraintEnd_toEndOf="@+id/et_item_size"
+                app:layout_constraintStart_toStartOf="@+id/et_item_size" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

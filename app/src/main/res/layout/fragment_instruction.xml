@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="instructionViewModel"
+            type="com.udacity.shoestore.viewmodels.InstructionViewModel" />
+    </data>
+    <!-- I could have use LinearLayout instead but I preferred to practice ConstraintLayout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screens.InstructionFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/authentication_screen_til_marginStartEnd"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="@dimen/authentication_screen_til_marginStartEnd"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:paddingTop="@dimen/welcome_titlepadding"
+            android:paddingBottom="@dimen/welcome_titlepadding"
+            android:text="@string/instructions"
+            android:textColor="@color/design_default_color_on_primary"
+            android:textSize="@dimen/welcome_titletextsize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_first_instruction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/authentication_screen_til_marginStartEnd"
+            android:layout_marginEnd="@dimen/authentication_screen_til_marginStartEnd"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:paddingTop="@dimen/welcome_paddingtopbottom"
+            android:paddingBottom="@dimen/welcome_paddingtopbottom"
+            android:text="@string/first_instruction"
+            android:textColor="@color/design_default_color_on_primary"
+            android:textSize="@dimen/nav_user_name_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/tv_second_instruction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_second_instruction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/authentication_screen_til_marginStartEnd"
+            android:layout_marginEnd="@dimen/authentication_screen_til_marginStartEnd"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:paddingTop="@dimen/welcome_paddingtopbottom"
+            android:paddingBottom="@dimen/welcome_paddingtopbottom"
+            android:text="@string/second_instruction"
+            android:textColor="@color/design_default_color_on_primary"
+            android:textSize="@dimen/nav_user_name_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/btn_inventory"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_first_instruction" />
+
+        <Button
+            android:id="@+id/btn_inventory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/welcome_margintopbottom2"
+            android:background="@drawable/shape_button_rounded"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:paddingLeft="@dimen/welcome_button_padding"
+            android:paddingTop="@dimen/btn_paddingTopBottom"
+            android:paddingRight="@dimen/welcome_button_padding"
+            android:paddingBottom="@dimen/btn_paddingTopBottom"
+            android:text="@string/inventory"
+            android:onClick="@{() -> instructionViewModel.onGoToShoeList()}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/btn_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="UnusedAttribute" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
